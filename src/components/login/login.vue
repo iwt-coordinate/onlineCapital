@@ -1,20 +1,21 @@
 <template>
-  <div>
-      <p>这是login页</p>
-      <el-button @click="form()">点击跳转home页</el-button>
-  </div>
+    <div>
+        <section class="login">
+            <header class="logo"><img src="@/images/logo.jpg" alt="互联网销售福利彩票交易系统"></header>
+            <article class="login_bg">
+            </article>
+        </section>
+    </div>
 </template>
 <script>
-    export default {
-        data(){
-            return {
-
-            }
-        },
-        methods :{
-            form(){
-                this.$router.push("/home")
-            }
-        }
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    form() {
+      this.$router.push("/home");
     }
+  }
+};
 </script>

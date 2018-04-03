@@ -6,6 +6,7 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './style/common.css';
+import './style/style.css';
 // import './style/pc_label.css';
 // import './style/h5_style.css';
 // import './style/h5_label.css';
