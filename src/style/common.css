@@ -1,10 +1,18 @@
 html,body{
-    height:100%}
+    height:100%
+}
 /* head css */
 /* menu css */
-.el-col-12 {
+.menu {
     width: 246px;
     width: 15%;
     height:100%;
 }
+/* .daohang{
+    color:#fff
+/* }; */
+.title1>.el-submenu__title{background: #de3441;} 
+.title1>.el-submenu__title i,.title1>.el-submenu__title span{ color:#fff; }
+.title1>.el-submenu__title:focus, .title1>.el-submenu__title:hover { outline: 0;}
+
 /* content css */
