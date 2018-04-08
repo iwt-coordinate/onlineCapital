@@ -6,10 +6,10 @@ import login from '@/components/login/login'
 Vue.use(Router)
 
 
-  const routes = [
-    {path: '/home', name: 'home', component: home},
-    {path: '/', name: 'login', component: login},
-  ]
+const routes = [
+  { path: '/home', name: 'home', component: home },
+  { path: '/', name: 'login', component: login },
+]
 
 export default new Router({
   routes,
