@@ -11,18 +11,18 @@ Vue.use(Router)
 
   const routes = [
     {path: '/home', name: '首页', component: home},
-    {path: '', name: ' 系统管理', component: home,children:[
-      {path: '', name: '系统用户管理', component: system ,children:
+    {path: '/xitonggunali', name: ' 系统管理', component: home, children:[
+      {path: '/xitongyonghu', name: '系统用户管理',children:
         [
-          {path: '/role', name: '角色管理', component: role, redirect:"/resources/role/list"},
+          {path: '/role', name: '角色管理', component: role,  alias: '/resources/role/list'},
         ]
       },
-      {path: '/HelloWorld', name: ' 你猜我是干啥的', component: system , redirect:"/quirt"}, 
+      {path: '/HelloWorld', name: ' 你猜我是干啥的', component: HelloWorld , alias:"/quirt"}, 
     ]},
     
-    {path: '', name: ' 投注资金账户管理', component: home,children:[
+    {path: '/touzhu', name: '投注资金账户管理',children:[
 
-      {path: '/system', name: '账户信息查询', component: system , redirect:"/resources/account/viewInfo"},
+      {path: '/system', name: '账户信息查询', component: system , alias:"/system"},
       
     ]},
     

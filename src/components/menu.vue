@@ -13,7 +13,7 @@
             
                     <el-submenu :index="item.order+'-'+items.order" :unique-opened="true" v-for="(items,indexs) in item.children" v-if="items.children.length>0">
                         <span slot="title" >{{items.funcTitle}}</span>
-                        <el-menu-item :index="itemchild.requestUrl" v-for="(itemchild,indexchild) in items.children">{{itemchild.funcTitle}}</el-menu-item>
+                        <el-menu-item  v-for="(itemchild,indexchild) in items.children" :index="itemchild.requestUrl">{{itemchild.funcTitle}}</el-menu-item>
                     </el-submenu>
                     <el-menu-item :index="items.requestUrl" v-for="(items,indexs) in item.children"  v-if="items.children.length<=0">{{items.funcTitle}}</el-menu-item>
            

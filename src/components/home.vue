@@ -6,7 +6,7 @@
         <contentd/>
         <div class="breadcrumb">
             <el-breadcrumb separator-class="el-icon-arrow-right">
-                <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                <!-- <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item> -->
                 <el-breadcrumb-item v-for="item in $route.matched" :key="item.index"> {{ item.name }}</el-breadcrumb-item>
 
             </el-breadcrumb>
