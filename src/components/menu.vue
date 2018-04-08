@@ -1,5 +1,5 @@
 <template>
-  <div class="menu">
+    <div class="menu">
         <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 0px;">
             <el-radio-button :label="false">展开</el-radio-button>
             <el-radio-button :label="true">收起</el-radio-button>
@@ -20,8 +20,8 @@
                 
             </el-submenu>
         </el-menu>
-        <pre>{{json}}</pre>
-  </div>
+        <!-- <pre>{{json}}</pre> -->
+    </div>
 </template>
 <script>
     export default {
@@ -300,63 +300,71 @@
                 ]
             }
         },
-        created(){
-            //菜单数据排序
-            var by = function(name){
-                return function(o, p){
-                var a, b;
-                if (typeof o === "object" && typeof p === "object" && o && p) {
-                    a = o[name];
-                    b = p[name];
-                    if (a === b) {
-                    return 0;
-                    }
-                    if (typeof a === typeof b) {
-                    return a < b ? -1 : 1;
-                    }
-                    return typeof a < typeof b ? -1 : 1;
-                }
-                else {
-                    throw ("error");
-                }
-                }
-            } 
-            //重排数据
-            var obj=[]
-            var that = this
-            for(var i in this.menus1){
-                this.menus1[i].children=[]
-               
-                for(var j in this.menus1){
-                     ////获取三级菜单
-                    if(that.menus1[i].parentFuncId && that.menus1[i].funcId===this.menus1[j].parentFuncId){
-                         that.menus1[i].children.push(this.menus1[j])
-                          that.menus1[i].children.sort(by("order"))  
-                    }
-                    ////获取二级菜单
-                    if(!that.menus1[i].parentFuncId && that.menus1[i].funcId===this.menus1[j].parentFuncId){
-                        that.menus1[i].children.push(this.menus1[j])
-                        that.menus1[i].children.sort(by("order"))
-                    }
-                }
-                //获取一级菜单
-                if(!this.menus1[i].parentFuncId){
-                    obj.push(this.menus1[i])
-                    obj.sort(by("order"))    
-                }
 
-            }
-            console.log(obj)
-            this.json=obj
-        },
-        methods:{
-             handleOpen(index) {
-                //  alert(index)
-                 console.log(index);
-            },
-            handleClose(key, keyPath) {
-                console.log(key, keyPath);
-            }
+      
+ 
+ 
+  created() {
+    //菜单数据排序
+    var by = function(name) {
+      return function(o, p) {
+        var a, b;
+        if (typeof o === "object" && typeof p === "object" && o && p) {
+          a = o[name];
+          b = p[name];
+          if (a === b) {
+            return 0;
+          }
+          if (typeof a === typeof b) {
+            return a < b ? -1 : 1;
+          }
+          return typeof a < typeof b ? -1 : 1;
+        } else {
+          throw "error";
         }
+      };
+    };
+    //重排数据
+    var obj = [];
+    var that = this;
+    for (var i in this.menus1) {
+      this.menus1[i].children = [];
+
+      for (var j in this.menus1) {
+        ////获取三级菜单
+        if (
+          that.menus1[i].parentFuncId &&
+          that.menus1[i].funcId === this.menus1[j].parentFuncId
+        ) {
+          that.menus1[i].children.push(this.menus1[j]);
+          that.menus1[i].children.sort(by("order"));
+        }
+        ////获取二级菜单
+        if (
+          !that.menus1[i].parentFuncId &&
+          that.menus1[i].funcId === this.menus1[j].parentFuncId
+        ) {
+          that.menus1[i].children.push(this.menus1[j]);
+          that.menus1[i].children.sort(by("order"));
+        }
+      }
+      //获取一级菜单
+      if (!this.menus1[i].parentFuncId) {
+        obj.push(this.menus1[i]);
+        obj.sort(by("order"));
+      }
     }
+    console.log(obj);
+    this.json = obj;
+  },
+  methods: {
+    handleOpen(index) {
+      //  alert(index)
+      console.log(index);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    }
+  }
+};
 </script>

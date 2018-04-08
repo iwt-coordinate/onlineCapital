@@ -17,7 +17,7 @@ Vue.use(Router)
           {path: '/role', name: '角色管理', component: role, redirect:"/resources/role/list"},
         ]
       },
-      {path: '/HelloWorld', name: ' 你猜我是干啥的",', component: system , redirect:"/quirt"}, 
+      {path: '/HelloWorld', name: ' 你猜我是干啥的', component: system , redirect:"/quirt"}, 
     ]},
     
     {path: '', name: ' 投注资金账户管理', component: home,children:[
