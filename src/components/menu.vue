@@ -4,8 +4,8 @@
             <el-radio-button :label="false">展开</el-radio-button>
             <el-radio-button :label="true">收起</el-radio-button>
         </el-radio-group> -->
-        <el-menu default-active="" class="el-menu-vertical-demo"  @open="handleOpen" @close="handleClose" :collapse="isCollapse" :default-openeds="openeds" v-for="(item,index) in json">
-            <el-submenu :index="item.order+''" class="title1">
+        <el-menu default-active="1" class="el-menu-vertical-demo" :router="true" @open="handleOpen" @close="handleClose" :collapse="isCollapse" :default-openeds="openeds">
+            <el-submenu  v-for="(item,index) in json" :index="item.order+''" class="title1">
                 <template slot="title" >
                     <i class="el-icon-location colorw"></i>
                     <span slot="title" class="colorw">{{item.funcTitle}}</span>
@@ -13,7 +13,7 @@
             
                     <el-submenu :index="item.order+'-'+items.order" :unique-opened="true" v-for="(items,indexs) in item.children" v-if="items.children.length>0">
                         <span slot="title" >{{items.funcTitle}}</span>
-                        <el-menu-item :index="item.order+'-'+items.order+'-'+itemchild.order" v-for="(itemchild,indexchild) in items.children">{{itemchild.funcTitle}}</el-menu-item>
+                        <el-menu-item :index="itemchild.requestUrl" v-for="(itemchild,indexchild) in items.children">{{itemchild.funcTitle}}</el-menu-item>
                     </el-submenu>
                     <el-menu-item :index="items.requestUrl" v-for="(items,indexs) in item.children"  v-if="items.children.length<=0">{{items.funcTitle}}</el-menu-item>
            
@@ -151,6 +151,14 @@
                     "funcType": 0,
                     "parentFuncId": "43dafb5d39f3481f85dce80c0ee95e40",
                     "order": 2
+                    },
+                     {
+                    "funcId": "43dafb5d39f3481f85dce80c0ee95e43",
+                    "funcTitle": "你猜我是干啥的",
+                    "requestUrl": "/quirt",
+                    "funcType": 0,
+                    "parentFuncId": "43dafb5d39f3481f85dce80c0ee95e40",
+                    "order": 3
                     },
                     {
                     "funcId": "43dafb5d39f3481f85dce80c0ee95e52",
